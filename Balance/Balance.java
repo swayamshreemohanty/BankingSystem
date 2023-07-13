@@ -1,7 +1,7 @@
 package BankingSystem.Balance;
 
 public class Balance {
-  static private long balance=0;
+    private long balance=0;
 
     public long getBalance(){
         return balance;
