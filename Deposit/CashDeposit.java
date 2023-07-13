@@ -6,17 +6,20 @@ import BankingSystem.CheckBalance.BalanceCheck;
 
 public class CashDeposit {
         Balance balance;
-        public CashDeposit(Balance balanceInstance){
+        BalanceCheck balanceCheck;
+        Scanner scanner;
+        public CashDeposit(Balance balanceInstance,BalanceCheck balanceCheckInstance, Scanner scannerInstance){
             balance=balanceInstance;
+            scanner=scannerInstance;
+            balanceCheck=balanceCheckInstance;
         }
-    
 
-    public void addBalance(Scanner scanner){
+    public void addBalance(){
             try {
                 System.out.println("Enter the amount you want to deposit: ");
                 long requiredBalance = Long.parseLong(scanner.next());
                 balance.setBalance(requiredBalance);
-                new BalanceCheck(balance).checkBalance();
+                balanceCheck.checkBalance();
             }catch(Exception e){
                 System.out.println(e.getMessage());
             }

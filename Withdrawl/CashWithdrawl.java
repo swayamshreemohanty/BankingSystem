@@ -6,15 +6,17 @@ import java.util.*;
 
 public class CashWithdrawl {
     Balance balance;
-    public CashWithdrawl(Balance balanceInstance){
+    BalanceCheck balanceCheck;
+    Scanner scanner;
+    public CashWithdrawl(Balance balanceInstance,BalanceCheck balanceCheckInstance, Scanner scannerInstance){
         balance=balanceInstance;
+        scanner=scannerInstance;
+        balanceCheck=balanceCheckInstance;
     }
-
-
-    public void withDrawBalance(Scanner scanner){
+    public void withDrawBalance(){
         System.out.println("Enter the amount you want to withdrawl: ");
         long requiredBalance = Long.parseLong(scanner.next());
         balance.withdrawlBalance(requiredBalance);
-        new BalanceCheck(balance).checkBalance();
+        balanceCheck.checkBalance();
     }
 }

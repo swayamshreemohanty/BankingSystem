@@ -9,11 +9,12 @@ import BankingSystem.Withdrawl.CashWithdrawl;
 public class BankingSystem {
     public static void main(String[] args) {
         Balance balance = new Balance();
-        BalanceCheck balanceCheck = new BalanceCheck(balance);
-        CashDeposit cashDeposit = new CashDeposit(balance);
-        CashWithdrawl cashWithdrawl = new CashWithdrawl(balance);
-
         Scanner scanner = new Scanner(System.in);
+
+        BalanceCheck balanceCheck = new BalanceCheck(balance,scanner);
+        CashDeposit cashDeposit = new CashDeposit(balance,balanceCheck,scanner);
+        CashWithdrawl cashWithdrawl = new CashWithdrawl(balance,balanceCheck,scanner);
+
         String input;
         while (true) {
             System.out.println("Select an option:");
@@ -23,8 +24,8 @@ public class BankingSystem {
             System.out.println("4. Exit");
             input = scanner.next();
             switch (input) {
-                case "1" -> cashDeposit.addBalance(scanner);
-                case "2" -> cashWithdrawl.withDrawBalance(scanner);
+                case "1" -> cashDeposit.addBalance();
+                case "2" -> cashWithdrawl.withDrawBalance();
                 case "3" -> balanceCheck.checkBalance();
                 default -> System.exit(0);
             }

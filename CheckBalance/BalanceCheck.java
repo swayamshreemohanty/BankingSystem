@@ -1,10 +1,15 @@
 package BankingSystem.CheckBalance;
 import BankingSystem.Balance.Balance;
 
+import java.util.Scanner;
+
 public class BalanceCheck {
     Balance balance;
-    public BalanceCheck(Balance balanceInstance){
+    Scanner scanner;
+
+    public BalanceCheck(Balance balanceInstance,Scanner scannerInstance){
         balance=balanceInstance;
+        scanner=scannerInstance;
     }
 
    public void checkBalance(){
