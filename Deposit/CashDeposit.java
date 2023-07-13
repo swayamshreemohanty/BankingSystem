@@ -11,13 +11,15 @@ public class CashDeposit {
         }
     
 
-    public void addBalance(){
-        Scanner input = new Scanner(System.in);
-        System.out.println("Enter the amount you want to deposit: ");
-        long requiredBalance = input.nextLong();
-        balance.setBalance(requiredBalance);
-        new BalanceCheck(balance).checkBalance();
-        input.close();
+    public void addBalance(Scanner scanner){
+            try {
+                System.out.println("Enter the amount you want to deposit: ");
+                long requiredBalance = Long.parseLong(scanner.next());
+                balance.setBalance(requiredBalance);
+                new BalanceCheck(balance).checkBalance();
+            }catch(Exception e){
+                System.out.println(e.getMessage());
+            }
     }
 
 }

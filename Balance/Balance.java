@@ -12,7 +12,7 @@ public class Balance {
         return;
     }
 
-    public void widrawlBalance(long requiredBalance){
+    public void withdrawlBalance(long requiredBalance){
         balance-=requiredBalance;
         return;
     }

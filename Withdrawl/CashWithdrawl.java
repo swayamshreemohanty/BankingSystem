@@ -11,13 +11,10 @@ public class CashWithdrawl {
     }
 
 
-    public void withDrawBalance(){
-        Scanner input = new Scanner(System.in);
-        System.out.println("Enter the amount you want to widraw: ");
-
-        long requiredBalance = input.nextLong();
-        input.close();
-        balance.widrawlBalance(requiredBalance);
+    public void withDrawBalance(Scanner scanner){
+        System.out.println("Enter the amount you want to withdrawl: ");
+        long requiredBalance = Long.parseLong(scanner.next());
+        balance.withdrawlBalance(requiredBalance);
         new BalanceCheck(balance).checkBalance();
     }
 }

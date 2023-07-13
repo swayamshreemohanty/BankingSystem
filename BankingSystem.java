@@ -15,36 +15,19 @@ public class BankingSystem {
 
         Scanner scanner = new Scanner(System.in);
         String input;
-
         while (true) {
             System.out.println("Select an option:");
             System.out.println("1. Cash Deposit");
             System.out.println("2. Cash Withdrawal");
             System.out.println("3. Check Balance");
             System.out.println("4. Exit");
-
-            if (scanner.hasNext()) {
-                input = scanner.next();
-            } else {
-                // Handle the case where no input is available
-                input = "";
-                break;
-            }
-
+            input = scanner.next();
             switch (input) {
-                case "1" -> cashDeposit.addBalance();
-                case "2" -> cashWithdrawl.withDrawBalance();
+                case "1" -> cashDeposit.addBalance(scanner);
+                case "2" -> cashWithdrawl.withDrawBalance(scanner);
                 case "3" -> balanceCheck.checkBalance();
-                default -> System.out.println("Invalid option. Please try again.");
-            }
-
-            if (input.equals("4")) {
-                break; // Exit the loop if the user chooses option 4
+                default -> System.exit(0);
             }
         }
-
-        System.out.println("Program finished. Press Enter to exit.");
-        scanner.nextLine(); // Waits for the Enter key before closing the console
-        scanner.close();
     }
 }
