@@ -1,30 +1,30 @@
 package BankingSystem;
-import java.util.*;
+
+import java.util.Scanner;
 import BankingSystem.Balance.Balance;
 import BankingSystem.CheckBalance.BalanceCheck;
 import BankingSystem.Deposit.CashDeposit;
 import BankingSystem.Withdrawl.CashWithdrawl;
 
 public class BankingSystem {
-    public static void main(String arrgs[]){
-
-    Balance balance = new Balance();
-    BalanceCheck balanceCheck= new BalanceCheck(balance);
-    CashDeposit cashDeposit= new CashDeposit(balance);
-    CashWithdrawl cashWithdrawl= new CashWithdrawl(balance);
+    public static void main(String[] args) {
+        Balance balance = new Balance();
+        BalanceCheck balanceCheck = new BalanceCheck(balance);
+        CashDeposit cashDeposit = new CashDeposit(balance);
+        CashWithdrawl cashWithdrawl = new CashWithdrawl(balance);
 
         Scanner scanner = new Scanner(System.in);
         String input;
 
-        do {
+        while (true) {
             System.out.println("Select an option:");
             System.out.println("1. Cash Deposit");
             System.out.println("2. Cash Withdrawal");
             System.out.println("3. Check Balance");
             System.out.println("4. Exit");
 
-            if (scanner.hasNextLine()) {
-                input = scanner.nextLine();
+            if (scanner.hasNext()) {
+                input = scanner.next();
             } else {
                 // Handle the case where no input is available
                 input = "";
@@ -37,9 +37,14 @@ public class BankingSystem {
                 case "3" -> balanceCheck.checkBalance();
                 default -> System.out.println("Invalid option. Please try again.");
             }
-        } while (!input.equals("4"));
 
+            if (input.equals("4")) {
+                break; // Exit the loop if the user chooses option 4
+            }
+        }
+
+        System.out.println("Program finished. Press Enter to exit.");
+        scanner.nextLine(); // Waits for the Enter key before closing the console
         scanner.close();
-
-}
+    }
 }
