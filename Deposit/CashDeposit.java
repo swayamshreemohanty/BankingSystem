@@ -1,18 +1,23 @@
 package BankingSystem.Deposit;
 import java.util.*;
 
+import BankingSystem.Balance.Balance;
+import BankingSystem.CheckBalance.BalanceCheck;
+
 public class CashDeposit {
-    private static long balance;
+        Balance balance;
+        public CashDeposit(Balance balanceInstance){
+            balance=balanceInstance;
+        }
+    
 
-    public static void main(String arrgs[]){
-
+    public void addBalance(){
         Scanner input = new Scanner(System.in);
-        long amt;
-        System.out.println("Enter the amount you want to deposit: ");  
-
-        amt = input.nextLong();
+        System.out.println("Enter the amount you want to deposit: ");
+        long requiredBalance = input.nextLong();
+        balance.setBalance(requiredBalance);
+        new BalanceCheck(balance).checkBalance();
         input.close();
-        balance = balance+amt;
     }
 
 }

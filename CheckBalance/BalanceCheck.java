@@ -1,13 +1,14 @@
 package BankingSystem.CheckBalance;
+import BankingSystem.Balance.Balance;
 
 public class BalanceCheck {
     Balance balance;
-
-    BalanceCheck(Balance balanceInstance){
+    public BalanceCheck(Balance balanceInstance){
         balance=balanceInstance;
     }
 
-    long checkBalance(){
-        return balance.getBalance();
+   public void checkBalance(){
+        long availableBalance=balance.getBalance();
+        System.out.println("Balance Available: "+availableBalance);
     }
 }

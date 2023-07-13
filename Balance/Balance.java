@@ -3,12 +3,17 @@ package BankingSystem.Balance;
 public class Balance {
   static private long balance=0;
 
-   static long getBalance(){
+    public long getBalance(){
         return balance;
     }
 
-  static  void setBalance(long newBalance){
-        balance=newBalance;
+ public void setBalance(long newBalance){
+        balance+=newBalance;
+        return;
     }
 
+    public void widrawlBalance(long requiredBalance){
+        balance-=requiredBalance;
+        return;
+    }
 }

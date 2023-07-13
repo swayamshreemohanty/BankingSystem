@@ -1,23 +1,23 @@
 package BankingSystem.Withdrawl;
+import BankingSystem.Balance.Balance;
+import BankingSystem.CheckBalance.BalanceCheck;
+
 import java.util.*;
 
 public class CashWithdrawl {
-    private static long balance;
-    public static void main(String arrgs[]){
-        Scanner input = new Scanner(System.in);
+    Balance balance;
+    public CashWithdrawl(Balance balanceInstance){
+        balance=balanceInstance;
+    }
 
-        long amt;
-    System.out.println("Enter the amout you want to withraw: ");
-    amt = input.nextLong();
-    input.close();
-    
-    if(balance >= amt){
-        balance = balance - amt;
-        System.out.println("Balance after withdrawl: " + balance);
+
+    public void withDrawBalance(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter the amount you want to widraw: ");
+
+        long requiredBalance = input.nextLong();
+        input.close();
+        balance.widrawlBalance(requiredBalance);
+        new BalanceCheck(balance).checkBalance();
     }
-    else{
-        System.out.println("Insufficient fund");
-    }
-    }
-    
 }
